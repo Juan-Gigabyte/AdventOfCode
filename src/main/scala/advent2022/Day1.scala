@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 import scala.io.{BufferedSource, Source}
 
 object Day1 {
-  val filename = "src/main/scala/advent2022/D1.txt"
+  val filename = "inputs/D1.txt"
   val source: BufferedSource = Source.fromFile(filename)
   val lines: List[String] = (for (line <- source.getLines()) yield line).toList
   source.close()
@@ -28,7 +28,9 @@ object Day1 {
       else if list.head == "" then superAdder(list.tail, 0, sum :: currentSums)
       else superAdder(list.tail, sum + list.head.toInt, currentSums)
     end superAdder
-    superAdder(list).sortWith(_ > _).take(3)
+    superAdder(list)
+      .sortWith(_ > _)
+      .take(3)
   end top3Elves
 
   def main(args: Array[String]): Unit =
