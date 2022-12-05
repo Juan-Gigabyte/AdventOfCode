@@ -36,7 +36,7 @@ object Day3 {
     @tailrec
     def inspect(bags: List[String], totalPriority: Int = 0): Int =
       if bags.isEmpty then totalPriority
-      else inspect(bags.tail.tail.tail, totalPriority + groupValue(bags take 3))
+      else inspect(bags drop 3, totalPriority + groupValue(bags take 3))
     end inspect
     inspect(bags)
   end bagInspector
